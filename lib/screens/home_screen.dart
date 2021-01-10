@@ -1,10 +1,13 @@
 import 'package:bmi_calculator/components/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final pageController = Provider.of<PageController>(context, listen: false);
+
     return Scaffold(
       backgroundColor: const Color(0xFFBF9DFF),
       body: Stack(
@@ -63,7 +66,12 @@ class HomeScreen extends StatelessWidget {
           Align(
             alignment: const Alignment(0, 0.9),
             child: AnimatedButton(
-              onPressed: () {},
+              onPressed: () {
+                pageController.nextPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                );
+              },
               height: 60,
               width: 250,
               backgroundColor: const Color(0xFFAE81FF),

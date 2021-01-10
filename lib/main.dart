@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/screens/home_screen.dart';
+import 'package:bmi_calculator/screens/navigation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeScreen(),
+      home: Navigation(),
     );
   }
 }

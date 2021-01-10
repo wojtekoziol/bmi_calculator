@@ -42,6 +42,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
     return GestureDetector(
       onTapDown: (details) async {
         await _animationController.forward();
+        widget.onPressed();
         _animationController.reverse();
       },
       child: AnimatedBuilder(
