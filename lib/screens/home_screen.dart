@@ -17,64 +17,29 @@ class HomeScreen extends StatelessWidget {
             alignment: Alignment.bottomLeft,
             child: SvgPicture.asset('assets/svgs/purple-2.svg'),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 128),
-            child: Align(
-              child: Column(
-                children: [
-                  Text(
-                    'BMI Calculator',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 48,
-                      fontFamily: 'Nunito',
-                      fontWeight: FontWeight.bold,
-                      shadows: [
-                        BoxShadow(
-                          offset: const Offset(0, 3),
-                          blurRadius: 6,
-                          color: Colors.black.withOpacity(0.16),
-                        )
-                      ],
-                    ),
+          Align(
+            alignment: const Alignment(0, -0.65),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'BMI Calculator',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 48,
+                    fontFamily: 'Nunito',
+                    fontWeight: FontWeight.bold,
+                    shadows: [
+                      BoxShadow(
+                        offset: const Offset(0, 3),
+                        blurRadius: 6,
+                        color: Colors.black.withOpacity(0.16),
+                      )
+                    ],
                   ),
-                  Text(
-                    'Be aware of yourself!',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontFamily: 'Nunito',
-                      shadows: [
-                        BoxShadow(
-                          offset: const Offset(0, 3),
-                          blurRadius: 6,
-                          color: Colors.black.withOpacity(0.16),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: Align(
-              alignment: Alignment.center,
-              child: Image.asset('assets/pngs/bmi.png'),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 32),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: AnimatedButton(
-                onPressed: () {},
-                height: 60,
-                width: 250,
-                backgroundColor: const Color(0xFFAE81FF),
-                child: Text(
-                  'Calculate',
+                ),
+                Text(
+                  'Be aware of yourself!',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24,
@@ -87,6 +52,34 @@ class HomeScreen extends StatelessWidget {
                       )
                     ],
                   ),
+                ),
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Image.asset('assets/pngs/bmi.png'),
+          ),
+          Align(
+            alignment: const Alignment(0, 0.9),
+            child: AnimatedButton(
+              onPressed: () {},
+              height: 60,
+              width: 250,
+              backgroundColor: const Color(0xFFAE81FF),
+              child: Text(
+                'Calculate',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontFamily: 'Nunito',
+                  shadows: [
+                    BoxShadow(
+                      offset: const Offset(0, 3),
+                      blurRadius: 6,
+                      color: Colors.black.withOpacity(0.16),
+                    )
+                  ],
                 ),
               ),
             ),

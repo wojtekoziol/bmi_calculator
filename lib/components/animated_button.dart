@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
 class AnimatedButton extends StatefulWidget {
   const AnimatedButton({
@@ -41,9 +40,9 @@ class _AnimatedButtonState extends State<AnimatedButton>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () async {
+      onTapDown: (details) async {
         await _animationController.forward();
-        await _animationController.reverse();
+        _animationController.reverse();
       },
       child: AnimatedBuilder(
         animation: _fadeAnimation,
