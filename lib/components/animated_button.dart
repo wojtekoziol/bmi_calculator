@@ -3,17 +3,17 @@ import 'package:flutter/material.dart';
 class AnimatedButton extends StatefulWidget {
   const AnimatedButton({
     @required this.onPressed,
-    @required this.height,
-    @required this.width,
     @required this.backgroundColor,
     @required this.child,
+    this.height,
+    this.width,
   });
 
   final Function onPressed;
-  final double height;
-  final double width;
   final Color backgroundColor;
   final Widget child;
+  final double height;
+  final double width;
 
   @override
   _AnimatedButtonState createState() => _AnimatedButtonState();
@@ -52,9 +52,15 @@ class _AnimatedButtonState extends State<AnimatedButton>
             height: widget.height,
             width: widget.width,
             decoration: BoxDecoration(
-              color: widget.backgroundColor.withOpacity(_fadeAnimation.value),
-              borderRadius: BorderRadius.circular(32),
-            ),
+                color: widget.backgroundColor.withOpacity(_fadeAnimation.value),
+                borderRadius: BorderRadius.circular(32),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.16),
+                    offset: const Offset(0, 3),
+                    blurRadius: 6,
+                  )
+                ]),
             child: Center(
               child: widget.child,
             ),
