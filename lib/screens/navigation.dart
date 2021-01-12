@@ -23,6 +23,7 @@ class _NavigationState extends State<Navigation> {
       value: _pageController,
       child: PageView(
         controller: _pageController,
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           HomeScreen(),
           WeightScreen(),
