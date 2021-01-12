@@ -21,56 +21,56 @@ class WeightScreen extends StatelessWidget {
             child: SvgPicture.asset('assets/svgs/green-2.svg'),
           ),
           Align(
-            alignment: Alignment.center.add(const Alignment(0, -0.25)),
-            child: Image.asset('assets/pngs/person-1.png'),
-          ),
-          Align(
-            alignment: const Alignment(0, 0.45),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  'Weight (kg)',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontFamily: 'Nunito',
-                    fontWeight: FontWeight.bold,
-                    shadows: [
-                      BoxShadow(
-                        offset: const Offset(0, 3),
-                        blurRadius: 6,
-                        color: Colors.black.withOpacity(0.16),
-                      )
+            child: Padding(
+              padding: const EdgeInsets.only(top: 200, bottom: 150),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset('assets/pngs/person-1.png'),
+                  Column(
+                    children: [
+                      Text(
+                        'Weight (kg)',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontFamily: 'Nunito',
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            BoxShadow(
+                              offset: const Offset(0, 3),
+                              blurRadius: 6,
+                              color: Colors.black.withOpacity(0.16),
+                            )
+                          ],
+                        ),
+                      ),
+                      Text(
+                        '71',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 48,
+                          fontFamily: 'Nunito',
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            BoxShadow(
+                              offset: const Offset(0, 3),
+                              blurRadius: 6,
+                              color: Colors.black.withOpacity(0.16),
+                            )
+                          ],
+                        ),
+                      ),
                     ],
                   ),
-                ),
-                Text(
-                  '71',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 48,
-                    fontFamily: 'Nunito',
-                    fontWeight: FontWeight.bold,
-                    shadows: [
-                      BoxShadow(
-                        offset: const Offset(0, 3),
-                        blurRadius: 6,
-                        color: Colors.black.withOpacity(0.16),
-                      )
-                    ],
+                  ConstrainedBox(
+                    constraints: BoxConstraints.tight(const Size(400, 0)),
+                    child: Slider(
+                      onChanged: (double value) {},
+                      value: 0.5,
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Align(
-            alignment: const Alignment(0, 0.64),
-            child: ConstrainedBox(
-              constraints: BoxConstraints.tight(const Size(400, 0)),
-              child: Slider(
-                onChanged: (double value) {},
-                value: 0.5,
+                ],
               ),
             ),
           ),

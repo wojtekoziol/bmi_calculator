@@ -21,47 +21,50 @@ class HomeScreen extends StatelessWidget {
             child: SvgPicture.asset('assets/svgs/purple-2.svg'),
           ),
           Align(
-            alignment: const Alignment(0, -0.65),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  'BMI Calculator',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 48,
-                    fontFamily: 'Nunito',
-                    fontWeight: FontWeight.bold,
-                    shadows: [
-                      BoxShadow(
-                        offset: const Offset(0, 3),
-                        blurRadius: 6,
-                        color: Colors.black.withOpacity(0.16),
-                      )
+            child: Padding(
+              padding: const EdgeInsets.only(top: 125, bottom: 300),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        'BMI Calculator',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 48,
+                          fontFamily: 'Nunito',
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            BoxShadow(
+                              offset: const Offset(0, 3),
+                              blurRadius: 6,
+                              color: Colors.black.withOpacity(0.16),
+                            )
+                          ],
+                        ),
+                      ),
+                      Text(
+                        'Be aware of yourself!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontFamily: 'Nunito',
+                          shadows: [
+                            BoxShadow(
+                              offset: const Offset(0, 3),
+                              blurRadius: 6,
+                              color: Colors.black.withOpacity(0.16),
+                            )
+                          ],
+                        ),
+                      ),
                     ],
                   ),
-                ),
-                Text(
-                  'Be aware of yourself!',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontFamily: 'Nunito',
-                    shadows: [
-                      BoxShadow(
-                        offset: const Offset(0, 3),
-                        blurRadius: 6,
-                        color: Colors.black.withOpacity(0.16),
-                      )
-                    ],
-                  ),
-                ),
-              ],
+                  Image.asset('assets/pngs/bmi.png'),
+                ],
+              ),
             ),
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: Image.asset('assets/pngs/bmi.png'),
           ),
           Align(
             alignment: const Alignment(0, 0.9),
