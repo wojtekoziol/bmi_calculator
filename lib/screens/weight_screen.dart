@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/components/animated_button.dart';
+import 'package:bmi_calculator/components/custom_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +23,7 @@ class WeightScreen extends StatelessWidget {
           ),
           Align(
             child: Padding(
-              padding: const EdgeInsets.only(top: 200, bottom: 150),
+              padding: const EdgeInsets.only(top: 200, bottom: 125),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -63,13 +64,7 @@ class WeightScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  ConstrainedBox(
-                    constraints: BoxConstraints.tight(const Size(400, 0)),
-                    child: Slider(
-                      onChanged: (double value) {},
-                      value: 0.5,
-                    ),
-                  ),
+                  CustomSlider(),
                 ],
               ),
             ),
