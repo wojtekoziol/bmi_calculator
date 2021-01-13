@@ -1,4 +1,7 @@
+import 'package:bmi_calculator/models/bmi.dart';
+import 'package:bmi_calculator/screens/height_screen.dart';
 import 'package:bmi_calculator/screens/home_screen.dart';
+import 'package:bmi_calculator/screens/result_screen.dart';
 import 'package:bmi_calculator/screens/weight_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,14 +22,23 @@ class _NavigationState extends State<Navigation> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: _pageController,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider.value(
+          value: _pageController,
+        ),
+        ChangeNotifierProvider(
+          create: (context) => Bmi(),
+        ),
+      ],
       child: PageView(
         controller: _pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
           HomeScreen(),
           WeightScreen(),
+          HeightScreen(),
+          ResultScreen(),
         ],
       ),
     );

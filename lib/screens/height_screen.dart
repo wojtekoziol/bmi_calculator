@@ -5,23 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
-class WeightScreen extends StatelessWidget {
+class HeightScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pageController = Provider.of<PageController>(context, listen: false);
     final bmi = Provider.of<Bmi>(context, listen: false);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF84E5A9),
+      backgroundColor: const Color(0xFFFF93A0),
       body: Stack(
         children: [
           Align(
             alignment: Alignment.topLeft,
-            child: SvgPicture.asset('assets/svgs/green-1.svg'),
+            child: SvgPicture.asset('assets/svgs/red-1.svg'),
           ),
           Align(
-            alignment: Alignment.bottomRight,
-            child: SvgPicture.asset('assets/svgs/green-2.svg'),
+            alignment: const Alignment(1, 0.4),
+            child: SvgPicture.asset('assets/svgs/red-2.svg'),
           ),
           Align(
             child: Padding(
@@ -29,11 +29,11 @@ class WeightScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Image.asset('assets/pngs/person-1.png'),
+                  Image.asset('assets/pngs/person-2.png'),
                   Column(
                     children: [
                       Text(
-                        'Weight (kg)',
+                        'Height (cm)',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -51,7 +51,7 @@ class WeightScreen extends StatelessWidget {
                       Consumer<Bmi>(
                         builder: (context, bmi, child) {
                           return Text(
-                            '${bmi.weight}',
+                            '${bmi.height}',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 48,
@@ -72,12 +72,12 @@ class WeightScreen extends StatelessWidget {
                   ),
                   CustomSlider(
                     onChanged: (value) {
-                      bmi.weight = value.toInt();
+                      bmi.height = value.toInt();
                     },
-                    min: 30,
-                    max: 150,
-                    initialValue: bmi.weight.toDouble(),
-                    color: const Color(0xFFC2F2D4),
+                    min: 100,
+                    max: 200,
+                    initialValue: bmi.height.toDouble(),
+                    color: const Color(0xFFFFCED4),
                   ),
                 ],
               ),
@@ -98,7 +98,7 @@ class WeightScreen extends StatelessWidget {
                         );
                       },
                       height: 40,
-                      backgroundColor: const Color(0xFFC2F2D4),
+                      backgroundColor: const Color(0xFFFFCED4),
                       child: Padding(
                         padding: const EdgeInsets.only(top: 5),
                         child: Image.asset('assets/pngs/left-arrow.png'),
@@ -120,7 +120,7 @@ class WeightScreen extends StatelessWidget {
                       child: Text(
                         'Next',
                         style: TextStyle(
-                          color: const Color(0xFF84E5A9),
+                          color: const Color(0xFFFF93A0),
                           fontSize: 24,
                           fontFamily: 'Nunito',
                           fontWeight: FontWeight.bold,
@@ -128,7 +128,7 @@ class WeightScreen extends StatelessWidget {
                             BoxShadow(
                               offset: const Offset(0, 3),
                               blurRadius: 6,
-                              color: const Color(0xFF84E5A9).withOpacity(0.16),
+                              color: const Color(0xFFFF93A0).withOpacity(0.16),
                             )
                           ],
                         ),

@@ -2,12 +2,32 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomSlider extends StatefulWidget {
+  const CustomSlider({
+    @required this.onChanged,
+    @required this.min,
+    @required this.max,
+    @required this.color,
+    @required this.initialValue,
+  });
+
+  final void Function(double) onChanged;
+  final double min;
+  final double max;
+  final Color color;
+  final double initialValue;
+
   @override
   _CustomSliderState createState() => _CustomSliderState();
 }
 
 class _CustomSliderState extends State<CustomSlider> {
-  double _value = 70;
+  double _value;
+
+  @override
+  void initState() {
+    super.initState();
+    _value = widget.initialValue;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,24 +48,25 @@ class _CustomSliderState extends State<CustomSlider> {
               ]),
         ),
         SliderTheme(
-          data: const SliderThemeData(
-            activeTrackColor: Color(0xFFC2F2D4),
-            inactiveTrackColor: Color(0xFFC2F2D4),
-            trackShape: RoundedRectSliderTrackShape(),
+          data: SliderThemeData(
+            activeTrackColor: widget.color,
+            inactiveTrackColor: widget.color,
+            trackShape: const RoundedRectSliderTrackShape(),
             trackHeight: 20,
             thumbColor: Colors.white,
-            thumbShape: RoundSliderThumbShape(
+            thumbShape: const RoundSliderThumbShape(
               enabledThumbRadius: 20,
               elevation: 2.5,
             ),
             overlayColor: Colors.transparent,
           ),
           child: Slider(
-            min: 1,
-            max: 120,
+            min: widget.min,
+            max: widget.max,
             value: _value,
             onChanged: (value) {
               setState(() {
+                widget.onChanged(value);
                 _value = value;
               });
             },
