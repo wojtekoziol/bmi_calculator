@@ -14,6 +14,11 @@ class _ResultScreenState extends State<ResultScreen> {
   Widget build(BuildContext context) {
     final bmi = Provider.of<Bmi>(context, listen: false);
     final pageController = Provider.of<PageController>(context, listen: false);
+    final bmiResult = bmi.getResult();
+    final results = bmi.getResults(bmiResult);
+    final borders = bmi.getBorders(bmiResult);
+    final percentIndicatorHeight =
+        1.8 * ((bmiResult - borders[0]) * 100) / (borders[1] - borders[0]);
 
     return Scaffold(
       backgroundColor: const Color(0xFF21C3FF),
@@ -36,7 +41,7 @@ class _ResultScreenState extends State<ResultScreen> {
                   Column(
                     children: [
                       Text(
-                        bmi.getResult().toStringAsFixed(1),
+                        bmiResult.toStringAsFixed(1),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 86,
@@ -52,7 +57,7 @@ class _ResultScreenState extends State<ResultScreen> {
                         ),
                       ),
                       Text(
-                        'NORMAL WEIGHT',
+                        results[1].toUpperCase(),
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -70,7 +75,7 @@ class _ResultScreenState extends State<ResultScreen> {
                   ),
                   const SizedBox(height: 100),
                   Text(
-                    'overweight',
+                    results[0],
                     style: TextStyle(
                       fontSize: 18,
                       fontFamily: 'Nunito',
@@ -110,7 +115,9 @@ class _ResultScreenState extends State<ResultScreen> {
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: Container(
-                            height: 100,
+                            height: percentIndicatorHeight < 50
+                                ? 50
+                                : percentIndicatorHeight,
                             width: 90,
                             decoration: BoxDecoration(
                               color: const Color(0xFF21C3FF),
@@ -124,7 +131,7 @@ class _ResultScreenState extends State<ResultScreen> {
                     ),
                   ),
                   Text(
-                    'underweight',
+                    results[2],
                     style: TextStyle(
                       fontSize: 18,
                       fontFamily: 'Nunito',
