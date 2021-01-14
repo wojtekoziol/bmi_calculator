@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/foundation.dart';
 
 class Bmi with ChangeNotifier {
@@ -17,10 +19,7 @@ class Bmi with ChangeNotifier {
     notifyListeners();
   }
 
-  double result;
-
-  void calculate() {
-    result = weight / (height * height);
-    notifyListeners();
+  double getResult() {
+    return weight / math.pow(height / 100, 2);
   }
 }
