@@ -46,7 +46,6 @@ class _ResultScreenState extends State<ResultScreen> {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 86,
-                          fontFamily: 'Nunito',
                           fontWeight: FontWeight.bold,
                           shadows: [
                             BoxShadow(
@@ -62,7 +61,6 @@ class _ResultScreenState extends State<ResultScreen> {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
-                          fontFamily: 'Nunito',
                           shadows: [
                             BoxShadow(
                               offset: const Offset(0, 3),
@@ -79,7 +77,6 @@ class _ResultScreenState extends State<ResultScreen> {
                     results[0],
                     style: TextStyle(
                       fontSize: 18,
-                      fontFamily: 'Nunito',
                       shadows: [
                         BoxShadow(
                           offset: const Offset(0, 3),
@@ -135,7 +132,6 @@ class _ResultScreenState extends State<ResultScreen> {
                     results[2],
                     style: TextStyle(
                       fontSize: 18,
-                      fontFamily: 'Nunito',
                       shadows: [
                         BoxShadow(
                           offset: const Offset(0, 3),
@@ -189,7 +185,6 @@ class _ResultScreenState extends State<ResultScreen> {
                         style: TextStyle(
                           color: const Color(0xFF21C3FF),
                           fontSize: 24,
-                          fontFamily: 'Nunito',
                           fontWeight: FontWeight.bold,
                           shadows: [
                             BoxShadow(

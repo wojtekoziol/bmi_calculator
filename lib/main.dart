@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'BMI Calculator',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Nunito',
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Navigation(),

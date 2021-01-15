@@ -37,7 +37,6 @@ class WeightScreen extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
-                          fontFamily: 'Nunito',
                           fontWeight: FontWeight.bold,
                           shadows: [
                             BoxShadow(
@@ -55,7 +54,6 @@ class WeightScreen extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 48,
-                              fontFamily: 'Nunito',
                               fontWeight: FontWeight.bold,
                               shadows: [
                                 BoxShadow(
@@ -122,7 +120,6 @@ class WeightScreen extends StatelessWidget {
                         style: TextStyle(
                           color: const Color(0xFF84E5A9),
                           fontSize: 24,
-                          fontFamily: 'Nunito',
                           fontWeight: FontWeight.bold,
                           shadows: [
                             BoxShadow(

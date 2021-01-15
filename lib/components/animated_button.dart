@@ -42,7 +42,12 @@ class _AnimatedButtonState extends State<AnimatedButton>
     return GestureDetector(
       onTapDown: (details) async {
         await _animationController.forward();
+      },
+      onTapUp: (details) {
+        _animationController.reverse();
         widget.onPressed();
+      },
+      onTapCancel: () {
         _animationController.reverse();
       },
       child: AnimatedBuilder(
@@ -52,17 +57,21 @@ class _AnimatedButtonState extends State<AnimatedButton>
             height: widget.height,
             width: widget.width,
             decoration: BoxDecoration(
-                color: widget.backgroundColor.withOpacity(_fadeAnimation.value),
-                borderRadius: BorderRadius.circular(32),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.16),
-                    offset: const Offset(0, 3),
-                    blurRadius: 6,
-                  )
-                ]),
+              color: widget.backgroundColor.withOpacity(_fadeAnimation.value),
+              borderRadius: BorderRadius.circular(32),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.16 * _fadeAnimation.value),
+                  offset: const Offset(0, 3),
+                  blurRadius: 6,
+                )
+              ],
+            ),
             child: Center(
-              child: widget.child,
+              child: Opacity(
+                opacity: _fadeAnimation.value,
+                child: widget.child,
+              ),
             ),
           );
         },

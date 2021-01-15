@@ -33,7 +33,6 @@ class HomeScreen extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 48,
-                          fontFamily: 'Nunito',
                           fontWeight: FontWeight.bold,
                           shadows: [
                             BoxShadow(
@@ -49,7 +48,6 @@ class HomeScreen extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
-                          fontFamily: 'Nunito',
                           shadows: [
                             BoxShadow(
                               offset: const Offset(0, 3),
@@ -83,7 +81,6 @@ class HomeScreen extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
-                  fontFamily: 'Nunito',
                   fontWeight: FontWeight.bold,
                   shadows: [
                     BoxShadow(
