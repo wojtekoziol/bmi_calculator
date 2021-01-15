@@ -84,6 +84,7 @@ class HomeScreen extends StatelessWidget {
                   color: Colors.white,
                   fontSize: 24,
                   fontFamily: 'Nunito',
+                  fontWeight: FontWeight.bold,
                   shadows: [
                     BoxShadow(
                       offset: const Offset(0, 3),
