@@ -3,6 +3,7 @@ import 'package:bmi_calculator/models/bmi.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import 'package:share/share.dart';
 
 class ResultScreen extends StatefulWidget {
   @override
@@ -156,7 +157,12 @@ class _ResultScreenState extends State<ResultScreen> {
                 children: [
                   Expanded(
                     child: AnimatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Share.share(
+                          'Just measured my BMI via BMI Calculator (https://github.com/wojtekoziol/bmi_calculator) and it\'s ${bmiResult.toStringAsFixed(1)}!',
+                          subject: 'My BMI Result',
+                        );
+                      },
                       height: 40,
                       backgroundColor: const Color(0xFF21C3FF),
                       child: Padding(
