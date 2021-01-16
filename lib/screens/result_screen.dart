@@ -5,12 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:share/share.dart';
 
-class ResultScreen extends StatefulWidget {
-  @override
-  _ResultScreenState createState() => _ResultScreenState();
-}
-
-class _ResultScreenState extends State<ResultScreen> {
+class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bmi = Provider.of<Bmi>(context, listen: false);
@@ -25,124 +20,153 @@ class _ResultScreenState extends State<ResultScreen> {
       backgroundColor: const Color(0xFF21C3FF),
       body: Stack(
         children: [
-          Align(
-            alignment: Alignment.bottomCenter,
+          TweenAnimationBuilder(
+            tween: Tween<double>(
+              begin: 0.3,
+              end: 0,
+            ),
+            duration: const Duration(milliseconds: 1500),
+            curve: Curves.fastOutSlowIn,
+            builder: (context, double value, child) {
+              return Align(
+                alignment: Alignment.bottomCenter.add(Alignment(0, value)),
+                child: child,
+              );
+            },
             child: SvgPicture.asset('assets/svgs/clouds-blue.svg'),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
+          TweenAnimationBuilder(
+            tween: Tween<double>(
+              begin: 0.5,
+              end: 0,
+            ),
+            duration: const Duration(milliseconds: 1500),
+            curve: Curves.fastOutSlowIn,
+            builder: (context, double value, child) {
+              return Align(
+                alignment: Alignment.bottomCenter.add(Alignment(0, value)),
+                child: child,
+              );
+            },
             child: SvgPicture.asset('assets/svgs/clouds-white.svg'),
           ),
+          TweenAnimationBuilder(
+            tween: Tween<double>(begin: -0.1, end: 0),
+            duration: const Duration(milliseconds: 1500),
+            builder: (context, double value, child) {
+              return Align(
+                alignment: Alignment(0, -0.8 + value),
+                child: child,
+              );
+            },
+            child: Text(
+              bmiResult.toStringAsFixed(1),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 86,
+                fontWeight: FontWeight.bold,
+                shadows: [
+                  BoxShadow(
+                    offset: const Offset(0, 3),
+                    blurRadius: 6,
+                    color: Colors.black.withOpacity(0.16),
+                  )
+                ],
+              ),
+            ),
+          ),
           Align(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 75, bottom: 140),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
+            alignment: const Alignment(0, -0.55),
+            child: Text(
+              results[1].toUpperCase(),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                shadows: [
+                  BoxShadow(
+                    offset: const Offset(0, 3),
+                    blurRadius: 6,
+                    color: Colors.black.withOpacity(0.16),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Align(
+            alignment: const Alignment(0, 0.5),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  results[0],
+                  style: TextStyle(
+                    fontSize: 18,
+                    shadows: [
+                      BoxShadow(
+                        offset: const Offset(0, 3),
+                        blurRadius: 6,
+                        color: Colors.black.withOpacity(0.16),
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 30),
+                Container(
+                  height: 180,
+                  child: Stack(
                     children: [
-                      Text(
-                        bmiResult.toStringAsFixed(1),
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 86,
-                          fontWeight: FontWeight.bold,
-                          shadows: [
-                            BoxShadow(
-                              offset: const Offset(0, 3),
-                              blurRadius: 6,
-                              color: Colors.black.withOpacity(0.16),
-                            )
-                          ],
+                      Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          height: 180,
+                          width: 90,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(32),
+                            border: Border.all(color: const Color(0xFFEAEAEA)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.16),
+                                offset: const Offset(0, 3),
+                                blurRadius: 6,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                      Text(
-                        results[1].toUpperCase(),
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          shadows: [
-                            BoxShadow(
-                              offset: const Offset(0, 3),
-                              blurRadius: 6,
-                              color: Colors.black.withOpacity(0.16),
-                            )
-                          ],
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Container(
+                          height: percentIndicatorHeight < 50
+                              ? 50
+                              : percentIndicatorHeight,
+                          width: 90,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFF21C3FF),
+                            borderRadius: BorderRadius.circular(32),
+                            border: Border.all(color: const Color(0xFFEAEAEA)),
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 100),
-                  Text(
-                    results[0],
-                    style: TextStyle(
-                      fontSize: 18,
-                      shadows: [
-                        BoxShadow(
-                          offset: const Offset(0, 3),
-                          blurRadius: 6,
-                          color: Colors.black.withOpacity(0.16),
-                        )
-                      ],
-                    ),
+                ),
+                const SizedBox(height: 30),
+                Text(
+                  results[2],
+                  style: TextStyle(
+                    fontSize: 18,
+                    shadows: [
+                      BoxShadow(
+                        offset: const Offset(0, 3),
+                        blurRadius: 6,
+                        color: Colors.black.withOpacity(0.16),
+                      )
+                    ],
                   ),
-                  Container(
-                    height: 180,
-                    child: Stack(
-                      children: [
-                        Align(
-                          alignment: Alignment.center,
-                          child: Container(
-                            height: 180,
-                            width: 90,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(32),
-                              border:
-                                  Border.all(color: const Color(0xFFEAEAEA)),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.16),
-                                  offset: const Offset(0, 3),
-                                  blurRadius: 6,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Container(
-                            height: percentIndicatorHeight < 50
-                                ? 50
-                                : percentIndicatorHeight,
-                            width: 90,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF21C3FF),
-                              borderRadius: BorderRadius.circular(32),
-                              border:
-                                  Border.all(color: const Color(0xFFEAEAEA)),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Text(
-                    results[2],
-                    style: TextStyle(
-                      fontSize: 18,
-                      shadows: [
-                        BoxShadow(
-                          offset: const Offset(0, 3),
-                          blurRadius: 6,
-                          color: Colors.black.withOpacity(0.16),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
           Align(
@@ -175,7 +199,7 @@ class _ResultScreenState extends State<ResultScreen> {
                         pageController.animateToPage(
                           0,
                           duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeInOut,
+                          curve: Curves.fastOutSlowIn,
                         );
                       },
                       height: 40,
