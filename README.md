@@ -9,4 +9,4 @@ Beautiful BMI Calculator
 - Share the result
 
 # Comments
-Optimized only for iPhone X, 11, 11 Pro, 12, 12 Pro
+Optimized only for iPhone X, 11, 11 Pro, 12, 12 Pro. Feel free to contribute!
