@@ -26,6 +26,14 @@ dev_dependencies:
   integration_test:
     sdk: flutter
 
+  flutter_launcher_icons: ^0.8.1
+
+# flutter pub run flutter_launcher_icons:main
+flutter_icons:
+  ios: true
+  android: true
+  image_path: 'assets/pngs/app-icon.png'
+
 flutter:
   uses-material-design: true
 
