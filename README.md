@@ -5,6 +5,3 @@
 # Features
 - Calculate your BMI
 - Share the result
-
-# Comments
-Optimized only for iPhones. Feel free to contribute!
